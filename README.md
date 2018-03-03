@@ -23,15 +23,15 @@ yarn add vue-picture-input
 
 ```HTML
 <template>
-  <div class="hello">    
-    <picture-input 
-      ref="pictureInput" 
-      @change="onChange" 
-      width="600" 
-      height="600" 
-      margin="16" 
-      accept="image/jpeg,image/png" 
-      size="10" 
+  <div class="hello">
+    <picture-input
+      ref="pictureInput"
+      @change="onChange"
+      width="600"
+      height="600"
+      margin="16"
+      accept="image/jpeg,image/png"
+      size="10"
       buttonClass="btn"
       :customStrings="{
         upload: '<h1>Bummer!</h1>',
@@ -74,16 +74,17 @@ export default {
 
 You can find an example project here: https://github.com/alessiomaffeis/vue-picture-input-example
 
-Demo: https://alessiomaffeis.github.io/vue-picture-input-example/ 
+Demo: https://alessiomaffeis.github.io/vue-picture-input-example/
 
 ## Props
 
 - **width, height**: (pixels, optional) the maximum width and height of the preview container. The picture will be resized and centered to cover this area. If not specified, the preview container will expand to full width, 1:1 square ratio.
 - **crop**: (boolean, optional) set *:crop="false"* if you wish to disable cropping. The image will be resized and centered in order to be fully contained in the preview container. Default value: true.
+- **disableUpscaling**: (boolean, optional) Set *:disableUpscaling="true"* to disable image dimension upscaling. Default value: false.
 - **margin**: (pixels, optional) the margin around the preview container. Default value: 0.
 - **radius**: (percentage, optional) The border-radius value for the container. Set *radius="50"* to get a circular container. Default value: 0.
 - **plain**: (boolean, optional) Set *:plain="true"* to remove the inner border and text. Default value: false.
-- **accept**: (media type, optional) the accepted image type(s), e.g. image/jpeg, image/gif, etc. Default value: 'image/*'. 
+- **accept**: (media type, optional) the accepted image type(s), e.g. image/jpeg, image/gif, etc. Default value: 'image/*'.
 - **size**: (MB, optional) the maximum accepted file size in megabytes.
 - **removable**: (boolean, optional) set *:removable="true"* if you want to display a "Remove Photo" button. Default value: false.
 - **hideChangeButton**: (boolean, optional) set *:hideChangeButton="true"* if you want to hide the "Change Photo" button. Default value: false.
@@ -124,7 +125,7 @@ Default value: true.
   aspect: 'Landscape/Portrait' // Text only
 }
 ```
-   
+
 ## Events
 
 - **change**: emitted on (successful) picture change (prefill excluded). The image is passed along with the event as a Base64 Data URI string. If you need to access the underlying image from the parent component, add a *ref* attribute to picture-input (see the example above). You may want to use *this.$refs.pictureInput.image* (Base64 Data URI string) or *this.$refs.pictureInput.file* (File Object)
@@ -132,7 +133,7 @@ Default value: true.
 - **remove**: emitted on picture remove.
 - **click**: emitted on picture click.
 - **error**: emitted on error, along with an object with *type*, *message*, and optional additional parameters.
-  
+
 ## TODOs
 
 - Client-side resizing and cropping

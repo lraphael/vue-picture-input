@@ -52,6 +52,10 @@ export default {
       type: [String, Number],
       default: Number.MAX_SAFE_INTEGER
     },
+    disableUpscaling: {
+      type: [Boolean],
+      default: false
+    },
     margin: {
       type: [String, Number],
       default: 0
@@ -323,6 +327,10 @@ export default {
               let imageOrientation = this.getOrientation(this.imageObject.width, this.imageObject.height)
               if (canvasOrientation !== imageOrientation) {
                 this.rotateCanvas()
+              }
+              if (this.disableUpscaling) {
+                this.previewWidth = this.imageObject.width
+                this.previewHeight = this.imageObject.height
               }
             }
             this.drawImage(this.imageObject)
